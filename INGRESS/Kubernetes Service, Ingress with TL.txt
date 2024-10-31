@@ -1,0 +1,3 @@
+Kubernetes Service, Ingress with TLS and Ingress Controllers with Live coding
+
+https://nidhiashtikar.medium.com/kubernetes-ingress-host-based-ingress-and-path-based-ingress-4d82d1eedb14

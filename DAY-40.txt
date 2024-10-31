@@ -1,0 +1,25 @@
+DAY-40 | KUBERNETES CUSTOM RESOURCES | CUSTOM CONTROLLER | DEEP DIVE & DETAILED EXPLANATION | #k8s
+
+1. What is a Custom Resource ?
+2. Why do you need a Custom Resource in Kubernetes ?
+3. What is a Custom Resource Definition ?
+4. What is a Custom Controller ?
+5. How to write a Custom Controller in Kubernetes ?
+6. Comparison with the native Kubernetes Resources
+
+
+
+High-level Overview to understand what is custom resource, as we all know the regular resources in k8's are deployment, service, pods, security etc. As based on the functionality we find the resource is insufficient in k8's then we use custom resource to extend the api of k8's.
+We have 2 actors 1. DevOps Enginner
+2. User
+
+To extend the api of k8's We have custom resource definition, custom resource and custom controller.
+
+1. Custom Resource Defining:
+Defining a new type of API to K8's, CRD can be done using deployment.yml, by defining the things, where we can use what are supported and omitted what not to. To make this go through we need custom resource.
+CRD is an Yaml file which is used to introduce a new api to k8'sthat will have all the fields a user can submit.
+File used to create api is known as CRD, what ever user submitting is known as CR.
+
+
+
+https://github.com/kubernetes/sample-controller

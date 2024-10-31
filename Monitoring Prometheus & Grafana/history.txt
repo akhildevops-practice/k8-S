@@ -1,0 +1,160 @@
+history
+    1  ls
+    2  cat contfile
+    3  ls
+    4  vim file.sh
+    5  ./file.sh
+    6  vim file.sh
+    7  ./file.sh
+    8  ./file.sh
+    9  vim file.sh
+   10  ./file.sh
+   11  pwd
+   12  ./file.sh
+   13  ./file.sh
+   14  vim file.sh
+   15  ./file.sh
+   16  ls
+   17  vim file.sh
+   18  sudo -s
+   19  minikube start --driver=docker
+   20  minikube status
+   21  kubectl get nodes
+   22  kubectl create namespace ingress-testing
+   23  kubectl -n ingress-testing apply -f https://raw.githubusercontent.com/anveshmuppeda/kubernetes-ingress/main/nginx-ingress/testing/blogging-application/deploy.yaml
+   24  oc login --token=************************************ --server=https://api.sandbox-m4.g2pi.p1.openshiftapps.com:6443
+   25  curl -LO https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
+   26  ls
+   27  tar -xvzf openshift-client-linux.tar.gz
+   28  sudo mv oc /usr/local/bin/
+   29  oc version
+   30  oc login --token=************************************** --server=https://api.sandbox-m4.g2pi.p1.openshiftapps.com:6443
+   31  kubectl get pods
+   32  kubectl create deployment nginx --image=nginx
+   33  minikube delete
+   34  kubectl get svc
+   35  kubectl get src
+   36  clear
+   37  minikube status
+   38  minikube start
+   39  minikube delete
+   40  sudo -s
+   41  kubectl exec -it sample-python-app-768bb9bbfd-mssss -- /bin/bash
+   42  vim deployment.yml
+   43  kubectl apply -f deployment.yml
+   44  vim deployment.yml
+   45  kubectl apply -f deployment.yml
+   46  kubectl get pods -o wide
+   47  kubectl get pod -w
+   48  kubectl get pods
+   49  kubectl exec -it sample-python-app-bff856556-fdkb2 -- /bin/bash
+   50  exit
+   51  vim deployment.yml
+   52  kubectl apply -f deployment.yml
+   53  kubectl get pods -w
+   54  vim cm.yml
+   55  kubectl exec -it sample-python-app-8479575cf7-24rxg -- /bin/bash
+   56  vim cm.yml
+   57  kubectl apply -f cm.yml
+   58  kubectl describe cm test-cm
+   59  kubectl get pods -w
+   60  kubectl exec -it sample-python-app-8479575cf7-24rxg -- /bin/bash
+   61  kubectl create secret generic test-secret from-literal=db-port="3307"
+   62  kubectl create secret generic test-secret --from-literal=db-port="3307"
+   63  kubectl describe secret test-secret
+   64  kubectl edit secret test-secret
+   65  kubectl edit secret test-secret
+   66  echo MzMwNw== | base64 --decode
+   67  minikube start --memory=4098 --driver=virtualbox
+   68  sudo apt update
+   69  minikube start --memory=4098 --driver=virtualbox
+   70  sudo apt install virtualbox virtualbox-ext-pack
+   71  VBoxManage --version
+   72  sudo apt update
+   73  sudo apt install virtualbox-dkms linux-headers-$(uname -r)
+   74  minikube start --memory=4098 --driver=docker
+   75  minikube start --memory=2200mb --driver=docker
+   76  minikube delete
+   77  minikube start --memory=2200mb --driver=docker
+   78  minikube delete
+   79  minikube cache delete
+   80  minikube start --memory=2200mb --driver=docker
+   81  rm -rf /home/akhil/.minikube/cache/images/amd64/
+   82  minikube start --memory=2200mb --driver=docker
+   83  minikube delete
+   84  sudo apt-get purge --auto-remove virtualbox*
+   85  sudo apt-get autoremove --purge
+   86  dpkg -l | grep virtualbox
+   87  minikube start --memory=2000mb --driver=docker
+   88  minikube delete
+   89  minikube start --memory=2000mb --driver=docker --cache-images=false
+   90  minikube status
+   91  kubectl get pods -A
+   92  helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+   93  sudo snap install helm
+   94  sudo apt install helm
+   95  sudo snap install helm
+   96  sudo snap install helm --classic
+   97  helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+   98  helm repo update
+   99  helm install prometheus prometheus-community/prometheus
+  100  kubectl get pods
+  101  kubectl get svc
+  102  kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext
+  103  kubectl get svc
+  104  minikube ip
+  105  kubectl describe svc prometheus-server-ext
+  106  minikube tunnel
+  107  minikube service prometheus-server-ext --url
+  108  New-NetFirewallRule -DisplayName "Allow Minikube NodePort" -Direction Inbound -LocalPort 30194 -Protocol TCP -Action Allow
+  109  minikube service prometheus-server-ext --url
+  110  kubectl get svc prometheus-server-ext
+  111  minikube service prometheus-server-ext --url
+  112  minikube tunnel
+  113  kubectl get svc prometheus-server-ext
+  114  kubectl get pods
+  115  minikube logs
+  116  minikube ip
+  117  minikube update-check
+  118  kubectl port-forward service/prometheus-server-ext 9090:80
+  119  helm repo add grafana https://grafana.github.io/helm-charts
+  120  helm repo update
+  121  helm install grafana grafana/grafana
+  122  kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+  123  kubectl expose service grafana —-type=NodePort —-target-port=3000 —-name=grafana-ext
+  124  kubectl expose service grafana —-type=NodePort —-target-port=3000 —-name=grafana-ext
+  125  kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-ext
+  126  kubectl get svc
+  127  minikube ip
+  128  kubectl get pods
+  129  kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-ext
+  130  kubectl get svc grafana-ext
+  131  kubectl port-forward service/prometheus-server-ext 9090:80
+  132  kubectl port-forward service/grafana-ext 3000:3000
+  133  kubectl get svc grafana-ext -o yaml
+  134  kubectl port-forward service/grafana-ext 3000:80
+  135  curl http://localhost:9090/api/v1/query
+  136  netstat -tuln | grep 9090
+  137  ss -tuln | grep 9090
+  138  systemctl status prometheus
+  139  sudo ufw allow 9090/tcp
+  140  curl http://localhost:9090/api/v1/query
+  141  kubectl port-forward service/prometheus-server-ext 9090:80
+  142  kubectl get svc
+  143  kubectl port-forward svc/prometheus 9090:9090 -n prometheus-server-ext
+  144  curl http://localhost:9090/api/v1/query
+  145  kubectl get svc --all-namespaces | grep prometheus
+  146  kubectl port-forward svc/prometheus-server 9090:80 -n default
+  147  kubectl get pods -n default
+  148  curl http://localhost:9090/api/v1/query
+  149  minikube ip
+  150  kubectl port-forward service/grafana-ext 3000:80
+  151  kubectl port-forward service/grafana-ext 3000:80
+  152  kubectl port-forward svc/prometheus-server 9090:80 -n default
+  153  kubectl get svc
+  154  kubectl expose prometheus-kube-state-metrics --type=NodePort --target-Port=8080 --name=prometheus-kube-state-metrics-ext
+  155  kubectl expose service prometheus-kube-state-metrics --type=NodePort --target-port=8080 --name=prometheus-kube-state-metrics-ext
+  156  kubectl get svc
+  157  kubectl port-forward svc/prometheus-kube-state-metrics-ext 8080:8080
+  158  history
+akhil@LAPTOP-ARIT216A:~/Docker-Zero-to-Hero/examples/python-web-app$

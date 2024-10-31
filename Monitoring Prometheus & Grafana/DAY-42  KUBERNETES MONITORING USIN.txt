@@ -1,0 +1,83 @@
+DAY-42 | KUBERNETES MONITORING USING PROMETHEUS & GRAFANA |LIVE DEMO |STEPS IN GITHUB | #kubernetes
+
+* minikube start --memory=2000mb --driver=docker --cache-images=false
+
+PROMETHEUS USING HELM
+* sudo snap install helm --classic
+Install using Helm
+Add helm repo
+*helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+Update helm repo
+*helm repo update
+
+Install helm
+*helm install prometheus prometheus-community/prometheus
+
+Expose Prometheus Service
+This is required to access prometheus-server using your browser.
+* kubectl get pods
+* kubectl get svc
+We can see ClusterIp mode, then we need to use below command and can see the Prometheus server with node-port. 
+*kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext
+* kubectl get svc 
+
+* minikube service prometheus-server-ext --url
+This didn't worked 
+* Try Port-Forwarding
+If none of the above works, try port-forwarding the service to access it locally on your machine:
+
+bash
+Copy code
+*kubectl port-forward service/prometheus-server-ext 9090:80
+Then, open your browser and access Prometheus at:
+
+arduino
+Copy code
+http://localhost:9090
+This bypasses NodePort and ensures you can access Prometheus directly.
+
+GRAFANA USING HELM
+Install using Helm
+Add helm repo
+helm repo add grafana https://grafana.github.io/helm-charts
+
+Update helm repo
+helm repo update
+
+Install helm
+helm install grafana grafana/grafana
+
+Expose Grafana Service
+kubectl expose service grafana --type=NodePort --target-port=3000 --name=grafana-ext
+
+
+PWORD: ************************************
+
+Login in to grafann:
+Configure the data source
+To add the Prometheus data source, complete the following steps:
+
+Click Connections in the left-side menu.
+Under Connections, click Add new connection.
+Enter Prometheus in the search bar.
+Select Prometheus.
+Click Add new data source in the upper right.
+You will be taken to the Settings tab where you will set up your Prometheus configuration.
+
+In Prometheus placeholder place http://192.168.49.2:30194/
+save and test 
+
+Home >> Dashboard >> Import dashboard
+Use 3662 id, we get Prometheus defaultly, select Prometheus of ur configured.
+
+* kubectl get svc
+take kube-state-metrics 
+kubectl expose service prometheus-kube-state-metrics --type=NodePort --target-port=8080 --name=prometheus-kube-state-metrics-ext
+
+kubectl port-forward svc/prometheus-kube-state-metrics-ext 8080:8080
+
+http://localhost:8080
+
+
+

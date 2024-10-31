@@ -1,0 +1,70 @@
+ K8's INGRESS
+
+1. What is Ingress ?
+2. Why Ingress ?
+3. Load Balancer IP vs Ingress 
+4. What is Ingress Controller ?
+5. Different types of Ingress Controllers.
+
+Ingress: A Kubernetes resource that manages external access to services within a cluster, typically HTTP/S.
+
+Why Ingress?: It provides a centralized way to manage routing rules and SSL termination for multiple services.
+
+Load Balancer IP vs Ingress: Load Balancer IP assigns a unique IP to a service, while Ingress uses a single IP to route traffic to multiple services based on rules.
+
+Ingress Controller: A component that implements the rules defined in Ingress resources and manages the routing of external traffic.
+Different Types of Ingress Controllers: Includes NGINX, HAProxy, Traefik, and AWS ALB Ingress Controller, each offering different features and integrations.
+
+https://kubernetes.io/docs/concepts/services-networking/ingress/
+https://www.f5.com/products/nginx/nginx-ingress-controller
+https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
+
+Problem:
+1. Enterprise and TLS Load Balancer are missing in k8's as follows:
+   Enterprise Load Balancers supports ratio based, sticky session, path, white listing, black listing, domain.
+2. Service type load balancer charges more by cloud providers
+
+
+Interview question:
+Difference b/w load balancer type service and traditional ingress?
+- Load Balancer type service is good but it is missing all the enterprise level capabilities and cloud provider charge for every service load balancer using static ip.
+
+HOST BASED LOAD BALANCING USING INGRESS
+
+
+* vim ingress.yaml
++++++++++++++++++++++++++++++++++++++++++++
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-example
+spec:
+  rules:
+  - host: "foo.bar.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/bar"
+        backend:
+          service:
+            name: python-django-app-service
+            port:
+              number: 80
+++++++++++++++++++++++++++++++++++++++++++++++
+
+* kubectl apply -f ingress.yaml
+* kubectl get ingress
+* minikube addons enable ingress
+* kubectl get pods -A | grep nginx
+* kubetcl get ingress
+* sudo vim /etc/hosts
+*  ping foo.bar.com
+PING foo.bar.com (192.168.49.2) 56(84) bytes of data.
+64 bytes from foo.bar.com (192.168.49.2): icmp_seq=1 ttl=64 time=0.985 ms
+64 bytes from foo.bar.com (192.168.49.2): icmp_seq=2 ttl=64 time=0.118 ms
+*  curl -L http://foo.bar.com/bar -v
+- By this we can make a domain based routing.
+
+
+Day-39
+RBAC

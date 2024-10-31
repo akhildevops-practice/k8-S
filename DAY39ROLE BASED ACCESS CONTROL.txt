@@ -1,0 +1,35 @@
+ROLE BASED ACCESS CONTROL
+KUBERNETES RBAC
+1. How to create a 30 days free production OpenShift Cluster ?
+2. What is RBAC ?
+3. How to create Users and how to do user management in Kubernetes ?
+4. Kubernetes Service Accounts ?
+5. Roles 
+6. Role Bindings
+7. Identity Providers
+8. How to login to OpenShift cluster that we created in step 1 
+
+
+- Responsiblity of RBAC is User management and service management
+3 Highly Essentials things that define RBAC:
+
+1. Service Accounts/Users
+2. Roles/Cluster Roles
+3. Role Binding/ Cluster Role Binding
+
+
+- User:
+Here k8's does take control over user or access control, if offloads the access and users.
+For example when we download an app before creating it we may ask to login using google/fb etc, this means here the app is not accessing the user management another app's user is logged to use this app.
+In the same way k8's offloads user management and asks to give users to external user access controlers, example if we are using aws eks then users and access can be managed by IAM. This can be done with the help of API server which is an Oath Server.
+We have a key clock in GitHub we can manage the users and their access using key clock.
+- Service:
+Service Account can be created using pod.yaml/service.yml
+
+To attach Roles and policies to users and service account we using role binding.
+
+- service account : User
+- Role: Permission
+- Role Binding: Bind
+
+

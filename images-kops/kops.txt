@@ -1,0 +1,27 @@
+What will you learn ?
+1. Popular Kubernetes Distributions
+2. Manage hundreds of Kubernetes clusters 
+
+These commands demonstrate setting up a Kubernetes cluster using Kops on AWS. Kops is a tool that simplifies the creation, management, and deletion of Kubernetes clusters in cloud environments, particularly AWS.
+
+
+- aws s3api create-bucket --bucket kops-aki-storage --region ap-south-1 --create-bucket-configuration LocationConstraint=ap-south-1
+- kops create cluster \
+  --name=demok8scluster.akhilprabhu.local \
+  --state=s3://kops-akhil-storage \
+  --zones=ap-south-1a \
+  --node-count=1 \
+  --node-size=t2.micro \
+  --master-size=t2.micro \
+  --master-volume-size=8 \
+  --node-volume-size=8
+- kops update cluster demok8scluster.k8s.local --yes --admin --state=s3://kops-akhil-storage
+
+- kops validate cluster demok8scluster.k8s.local
+
+Popular Kubernetes Distributions: Offer various ways to deploy and manage Kubernetes clusters, both in the cloud and on-premises.
+Managing Hundreds of Clusters: Involves using multi-cluster management tools, automation, and centralized monitoring.
+Kops and AWS S3 Commands: Demonstrates creating a Kubernetes cluster using kops by setting up an S3 bucket, creating the cluster, and validating it.
+
+
+https://medium.com/@brodartec/hosting-a-static-site-with-https-enabled-using-aws-s3-cloudfront-and-godaddy-826dae41fdc6
